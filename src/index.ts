@@ -1,9 +1,13 @@
+#!/usr/bin/env node
+
 /**
- * Bearded Logger
+ * Bearded Axe
  *
  * @package  Bearded 
  * @author   Carlos Alvarez <beardedframework@gmail.com>
  */
 
-console.log("bearded's base modules")
+import Axe from './Axe'
 
+
+export default Axe;

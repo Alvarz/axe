@@ -1,7 +1,7 @@
 {
-  "name": "@beardedframework/logger",
-  "version": "0.0.13",
-  "description": "a logger for bearded",
+  "name": "@beardedframework/axe",
+  "version": "0.0.5",
+  "description": "a axe for bearded",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -37,9 +37,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BeardedFramework/logger"
+    "url": "git+https://github.com/BeardedFramework/axe"
   },
   "bugs": {
-    "url": "https://github.com/BeardedFramework/logger/issues"
+    "url": "https://github.com/BeardedFramework/axe/issues"
   }
 }
