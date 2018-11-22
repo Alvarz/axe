@@ -1,6 +1,6 @@
 {
   "name": "@beardedframework/axe",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "a axe for bearded",
   "main": "dist/index.js",
   "scripts": {
