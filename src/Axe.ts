@@ -1,6 +1,9 @@
 import * as fs from 'fs'
 import * as path from 'path';
-
+import Logger from '@beardedframework/logger'
+/*
+ * @class Axe
+ * */
 export default class Axe {
 
   /*
@@ -28,7 +31,6 @@ export default class Axe {
   }
   /*
    * show the arguments
-   *
    * @return { void }
    * */
   public showArgs() : void {
@@ -40,7 +42,6 @@ export default class Axe {
 
   /*
    * get the arguments passed
-   *
    * @return { Array }
    * */
   public getArgs() : Array<any>{
@@ -53,7 +54,6 @@ export default class Axe {
 
   /*
    * dispatch the selected action
-   *
    * @return { void }
    * */
   public dispatch() : void {
@@ -65,20 +65,19 @@ export default class Axe {
       this.usage();
     }
 
-    if(cmd === undefined || cmd == ''){
-      console.warn('[ERROR]  An argument needs to be provided');
+    if(cmd === undefined || cmd === ''){
+      Logger.error('An argument needs to be provided');
       this.usage();
       return;
     }
 
-    if(name === undefined || name ===''){
-      console.warn('[ERROR] The file name cannot to be created cannot be null');
+    if(name === undefined || name === ''){
+      Logger.error('The file name cannot to be created cannot be null');
       this.usage();
       return;
     }
 
     switch(cmd){
-
       case 'make:model':
         this.createModel(name);
         break;
@@ -112,7 +111,7 @@ export default class Axe {
     let to = `${this.appDir}/controllers/${name}.ts`;
     
     if (!fs.existsSync(fromm) || fs.existsSync(to)) {
-      console.error('there is no file to be copy ir the file already exists');
+      Logger.error('there is no file to be copy ir the file already exists');
       return;
     }
     this.copy(fromm, to, name);
@@ -130,7 +129,7 @@ export default class Axe {
     let to = `${this.appDir}/models/${name}.ts`;
     
     if (!fs.existsSync(fromm) || fs.existsSync(to)) {
-      console.error('there is no file to be copy ir the file already exists');
+      Logger.error('there is no file to be copy ir the file already exists');
       return;
     }
     this.copy(fromm, to, name);
@@ -145,18 +144,18 @@ export default class Axe {
    *
    * @return { void } 
    * */
-  private copy(fromm : string , to : string, name : string) : void {
+  private copy(fromm : string, to : string, name : string) : void {
 
     fs.createReadStream(fromm).pipe(fs.createWriteStream(to));
 
     if(!fs.existsSync(to)){
-      console.warn('file not copied yet');
+      Logger.warning('file not copied yet');
     }
 
     fs.readFile(to, "utf8", function(err, data) {
       
       if(err){
-        console.error(err);
+        Logger.error(err);
         process.exit(1);
       }
 
@@ -166,10 +165,9 @@ export default class Axe {
       fs.writeFile(to, data, function(err) {
 
         if(err){
-          console.error(err);
+          Logger.error(err);
           process.exit(1);
         }
-          
         console.log('Element was created \n');
         process.exit(1);
       });

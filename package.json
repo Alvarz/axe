@@ -19,6 +19,7 @@
   "author": "Carlos Alvarez <beardedframework@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@beardedframework/logger": "latest",
     "@types/node": "7.0.22",
     "nodemon": "1.11.0"
   },
